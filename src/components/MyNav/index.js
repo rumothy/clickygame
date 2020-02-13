@@ -17,7 +17,7 @@ class MyNav extends React.Component {
                 </li>
                 
                 <li>
-                    Score: 0 | Top Score: 0
+                    Score: {this.props.score} | Top Score: {this.props.topScore}
                 </li>
             </ul>
         </nav>    

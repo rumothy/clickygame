@@ -11,16 +11,38 @@ import MyFooter from "./components/MyFooter";
 class App extends React.Component {
   state = {
     characters,
+    score: 0,
+    topScore: 0,
+    selectedCards: []
   };
 
-  selected = id => {
-    console.log(`selected ${id}`);
+  handleCardClick = id => {
+    console.log(id);
+    const selectedCards = this.state.selectedCards;
+    let score = this.state.score;
+    let topScore = this.state.topScore;
+
+    if (selectedCards.includes(id)) {
+      this.setState( { score: 0 });
+      this.setState( { selectedCards: [] });
+    }
+    else {
+      this.state.selectedCards.push(id);
+      console.log(this.state.selectedCards);
+      score++;
+      if (score > topScore) {
+        this.setState( {topScore: score});
+      }
+      this.setState( {score: score});
+    }
   }
 
   render() {
     return (
       <div>
-        <MyNav />
+        <MyNav 
+          score={this.state.score}
+          topScore={this.state.topScore} />
         <MyHeader />
         <Main>
           {this.state.characters.map(x => (<Card
@@ -28,7 +50,7 @@ class App extends React.Component {
               id={x.id}
               name={x.name} 
               image={x.image}
-              selected={this.selected}
+              handleCardClick={this.handleCardClick}
             /> 
           ))}
         </Main>
