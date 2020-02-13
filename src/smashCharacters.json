@@ -1,0 +1,14 @@
+[
+    { 
+        "id": 1, 
+        "name": "Link",
+        "image": ""
+    },
+
+    { 
+        "id": 2, 
+        "name": "Pit",
+        "image": ""
+    }
+
+]

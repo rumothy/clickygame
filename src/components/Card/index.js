@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css"
 class Card extends React.Component {
     state = {
 
@@ -7,7 +7,15 @@ class Card extends React.Component {
 
     render() {
         return (
-            <h1>Hello Card</h1>
+            <div className="card">
+                <div className="img-container">
+                    <img alt={this.props.name} src={this.props.image}/>
+                </div>
+                <div className="content">
+                    <p><strong>{this.props.name}</strong></p>
+                </div>
+                <span onClick={() => this.props.selected} className="selected">x</span>
+            </div>
         );
     }
 }
