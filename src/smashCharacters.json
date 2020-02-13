@@ -9,6 +9,11 @@
         "id": 2, 
         "name": "Pit",
         "image": ""
-    }
+    },
 
+    {
+        "id": 3,
+        "name": "Piranha Plant",
+        "image": "https://www.smashbros.com/assets_v2/img/fighter/piranha_plant/ss_6.jpg"
+    }
 ]

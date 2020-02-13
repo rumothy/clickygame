@@ -7,14 +7,16 @@ class Card extends React.Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card" onClick={() => this.props.selected(this.props.id)}>
                 <div className="img-container">
                     <img alt={this.props.name} src={this.props.image}/>
                 </div>
                 <div className="content">
                     <p><strong>{this.props.name}</strong></p>
                 </div>
-                <span onClick={() => this.props.selected(this.props.id)} className="selected">x</span>
+                <span  className="selected">
+                    
+                </span>
             </div>
         );
     }

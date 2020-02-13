@@ -20,6 +20,7 @@ class App extends React.Component {
             key={x.id}
             id={x.id}
             name={x.name} 
+            image={x.image}
             selected={this.selected}
           /> 
         ))}
