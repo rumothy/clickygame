@@ -13,7 +13,7 @@ class MyNav extends React.Component {
                 </li>
                 
                 <li className="">
-                    Click an image to begin!
+                    {this.props.message}
                 </li>
                 
                 <li>

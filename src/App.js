@@ -13,8 +13,24 @@ class App extends React.Component {
     characters,
     score: 0,
     topScore: 0,
-    selectedCards: []
+    selectedCards: [],
+    message: 'Click an image to begin!'
   };
+
+  shuffleCards = (array) => {
+    let currentIndex = array.length;
+    let randomIndex = 0;
+    let temporaryValue = array[0];
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
 
   handleCardClick = id => {
     console.log(id);
@@ -25,6 +41,7 @@ class App extends React.Component {
     if (selectedCards.includes(id)) {
       this.setState( { score: 0 });
       this.setState( { selectedCards: [] });
+      this.setState({message: "Wrong!"});
     }
     else {
       this.state.selectedCards.push(id);
@@ -34,7 +51,10 @@ class App extends React.Component {
         this.setState( {topScore: score});
       }
       this.setState( {score: score});
+      this.setState({message: "You guessed correctly!"});
     }
+    this.shuffleCards(characters);
+    this.setState({characters});
   }
 
   render() {
@@ -42,7 +62,8 @@ class App extends React.Component {
       <div>
         <MyNav 
           score={this.state.score}
-          topScore={this.state.topScore} />
+          topScore={this.state.topScore} 
+          message={this.state.message}/>
         <MyHeader />
         <Main>
           {this.state.characters.map(x => (<Card
