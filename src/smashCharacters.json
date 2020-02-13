@@ -1,14 +1,14 @@
 [
     { 
         "id": 1, 
-        "name": "Link",
-        "image": ""
+        "name": "Toon Link",
+        "image": "https://www.smashbros.com/assets_v2/img/fighter/toon_link/ss_1.jpg"
     },
 
     { 
         "id": 2, 
         "name": "Pit",
-        "image": ""
+        "image": "https://www.smashbros.com/assets_v2/img/fighter/pit/ss_1.jpg"
     },
 
     {

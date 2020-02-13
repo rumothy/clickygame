@@ -3,10 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import Card from "./components/Card";
 import characters from "./smashCharacters.json";
+import Main from './components/Main';
+import MyNav from "./components/MyNav";
+import MyHeader from "./components/MyHeader";
+import MyFooter from "./components/MyFooter";
 
 class App extends React.Component {
   state = {
-    characters
+    characters,
   };
 
   selected = id => {
@@ -16,14 +20,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.characters.map(x => (<Card
-            key={x.id}
-            id={x.id}
-            name={x.name} 
-            image={x.image}
-            selected={this.selected}
-          /> 
-        ))}
+        <MyNav />
+        <MyHeader />
+        <Main>
+          {this.state.characters.map(x => (<Card
+              key={x.id}
+              id={x.id}
+              name={x.name} 
+              image={x.image}
+              selected={this.selected}
+            /> 
+          ))}
+        </Main>
+        <MyFooter />
       </div>
     );
   }
