@@ -14,7 +14,7 @@ class Card extends React.Component {
                 <div className="content">
                     <p><strong>{this.props.name}</strong></p>
                 </div>
-                <span onClick={() => this.props.selected} className="selected">x</span>
+                <span onClick={() => this.props.selected(this.props.id)} className="selected">x</span>
             </div>
         );
     }
